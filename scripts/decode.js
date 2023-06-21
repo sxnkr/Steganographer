@@ -29,7 +29,7 @@ function decode() {
         const decodedMessage = binaryToText(binaryMessage);
         const cleanedMessage = decodedMessage.replace(/[^a-zA-Z0-9 ]/g, '');
         outputDiv.innerHTML = '';
-        outputDiv.innerHTML = '<textarea id="decodedText" placeholder="Decoded text">' + cleanedMessage + '</textarea><button id="copyButton" onclick="copyText()">Copy Text</button>';
+        outputDiv.innerHTML = '<textarea class="form-control" id="decodedText" placeholder="Decoded text" style="margin-bottom: 10px;">' + cleanedMessage + '</textarea><button class="btn btn-primary" id="copyButton" onclick="copyText()" style="margin-left: 10px;">Copy Text</button>';
   
         const copyButton = document.getElementById('copyButton');
         copyButton.style.display = 'inline-block';
