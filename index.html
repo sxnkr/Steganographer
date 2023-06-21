@@ -1,36 +1,128 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Steganography Application</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h1>Steganography Application</h1>
+<head>
+  <title>Steganography Application</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
 
-    <h2>Original Image</h2>
-    <input type="file" id="imageInput" onchange="previewImage(event)" />
-    <br />
-    <div id="preview"></div>
+    .container {
+    padding: 20px;
+  }
 
-    <h2>Encode</h2>
-    <textarea id="messageInput" placeholder="Enter secret message"></textarea>
-    <button onclick="encode()">Encode Message</button>
-    <br />
-    <h2>Decode</h2>
-    <input type="file" id="encodedImageInput" />
-    <button onclick="decode()">Decode Message</button>
-    <br />
-    <h2>Output</h2>
-    <div id="output">
-      <textarea id="decodedText" placeholder="Decoded text"></textarea>
-      <button id="copyButton" onclick="copyText()">Copy Text</button>
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .intro {
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    input[type="file"],
+    textarea {
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+
+    #preview img,
+    #output img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card mt-4">
+          <div class="card-body">
+            <h1>Steganography Application</h1>
+
+            <div class="intro mb-4">
+              <div class="card-body">
+                <h2 class="card-title">What is Steganography?</h2>
+                <p class="card-text">Steganography is the practice of concealing a secret message or information within another file, such as an image, audio, or video, without arousing suspicion. It is often used to protect sensitive data or transmit covert messages securely. Steganographic techniques involve embedding the secret information in a cover file, making it imperceptible to casual observers. The hidden information can only be extracted by those who know where and how to look for it.</p>
+              </div>
+            </div>
+
+            <h2>Original Image</h2>
+            <div class="mb-3">
+              <input type="file" class="form-control" id="imageInput" onchange="previewImage(event)">
+            </div>
+            <div id="preview" class="text-center"></div>
+
+            <h2 class="mt-4">Encode</h2>
+            <div class="mb-3">
+              <textarea id="messageInput" class="form-control" placeholder="Enter secret message"></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="encode()">Encode Message</button>
+
+            <h2 class="mt-4">Decode</h2>
+            <div class="mb-3">
+              <input type="file" class="form-control" id="encodedImageInput">
+            </div>
+            <button class="btn btn-primary" onclick="decode()">Decode Message</button>
+
+            <h2 class="mt-4">Output</h2>
+            <div id="output">
+              <div class="mb-3">
+                <textarea id="decodedText" class="form-control" placeholder="Decoded text"></textarea>
+              </div>
+              <button class="btn btn-primary" onclick="copyText()">Copy Text</button>
+            </div>
+
+            <button id="downloadButton" class="btn btn-primary mt-4">Download Encoded Image</button>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <button id="downloadButton">Download Encoded Image</button>
-
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/encode.js"></script>
-    <script src="./scripts/decode.js"></script>
-    <script src="./scripts/helpers.js"></script>
-  </body>
+  <script src="./scripts/script.js"></script>
+  <script src="./scripts/encode.js"></script>
+  <script src="./scripts/decode.js"></script>
+  <script src="./scripts/helpers.js"></script>
+</body>
 </html>
